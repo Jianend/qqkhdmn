@@ -54,6 +54,7 @@ public class qqview {
                             key = Utility.readString(1);
                             switch (key){
                                 case "1":
+                                    //写一个方法
                                     System.out.println("显示在线用户列表");
                                     break;
                                 case "2":

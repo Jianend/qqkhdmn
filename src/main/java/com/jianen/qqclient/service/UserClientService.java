@@ -57,4 +57,24 @@ public class UserClientService {
        return b;
 
     }
+
+    //向服务器端请求在线用户列表
+    public void onlineFriendList()  {
+        //发送一个Message 类型 MESSAGE_GET_ONLINE_FRIEND
+        Message message = new Message();
+        message.setMesType(MessageType.MESSAGE_GET_ONLINE_FRIEND);
+        //发送给服务器
+        //应该得到当前线程对应的ObjectOutputStream对象
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream
+                    (ManageClientConnectServerThread.getClientConnectServerYThread(u.getUserid()).getSocket().getOutputStream());//通过集合获取socket 在通过socket获取对象
+            oos.writeObject(message);//发送对象
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 }
