@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Date;
 
 /**
  * 该类完成用户验证和用户注册功能
@@ -92,4 +93,7 @@ public class UserClientService {
 
 
     }
+
+
+
 }

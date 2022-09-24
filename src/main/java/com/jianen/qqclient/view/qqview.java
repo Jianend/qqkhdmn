@@ -2,6 +2,7 @@ package com.jianen.qqclient.view;
 
 import com.jianen.qqclient.service.ClientConnectServerThread;
 import com.jianen.qqclient.service.ManageClientConnectServerThread;
+import com.jianen.qqclient.service.MessageClientService;
 import com.jianen.qqclient.service.UserClientService;
 import com.jianen.qqclient.utils.Utility;
 
@@ -36,6 +37,7 @@ public class qqview {
                     System.out.print("请输入密码");
                     String pwd = Utility.readString(50);
                     UserClientService ucs  = new UserClientService();//对象用于登录服务/注册用户
+                    MessageClientService mcs  = new MessageClientService();//用于消息服务
 //到服务器验证用户是否合法
                     //我们编写一个类UserClientService 用户验证
 
@@ -62,8 +64,16 @@ public class qqview {
                                     break;
                                 case "2":
                                     System.out.println("2 群发消息");
+                                    String s = Utility.readString(100);
+                                    mcs.sendMessageToAll(s,userId);
                                     break;
                                 case "3":
+
+                                    System.out.print("请输入和谁私聊：");
+                                    String getId = Utility.readString(10);
+                                    System.out.print("请输入内容：");
+                                    String str = Utility.readString(100);
+                                    mcs.sendMessageToOne(str,userId,getId);
                                     System.out.println("\3 私聊消息");
                                     break;
                                 case "4":
@@ -90,5 +100,7 @@ public class qqview {
                     break;
             }
         }
+
     }
+
 }

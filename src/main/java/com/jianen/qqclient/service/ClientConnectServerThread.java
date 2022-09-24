@@ -11,7 +11,7 @@ public class ClientConnectServerThread extends Thread {
 
     //该线程需要持有Socker
     private Socket socket;
-    private boolean fool=true;
+    private boolean fool = true;
 
     public boolean isFool() {
         return fool;
@@ -38,11 +38,16 @@ public class ClientConnectServerThread extends Thread {
                     String[] s = o.getContent().split(" ");//用空格分割
 
                     System.out.println("\n===当前在线用户列表===");
-                    System.out.println(o.getContent());
+//                    System.out.println(o.getContent());
                     for (int i = 0; i < s.length; i++) {
-                        System.out.println("用户：  "+s[i]);
+                        System.out.println("用户：  " + s[i]);
                     }
-                } else {
+                } else if (o.getMesType().equals(MessageType.MESSAGE_COMM_MES)) {
+                    System.out.println("\n"+o.getSender()+": "+o.getContent()+"\n"+o.getSendTime());
+                }else if (o.getMesType().equals(MessageType.MESSAGE_TO_ALL_MES)){
+                    System.out.println("\n"+o.getSender()+"对大家说"+o.getContent());
+                }
+                else {
                     System.out.println("其他类型");
                 }
             } catch (Exception e) {
