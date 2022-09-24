@@ -72,7 +72,7 @@ public class qqview {
                                 case "9":
                                     System.out.println("5 退出系统");
                                     ucs.exit();//向服务器发送退出系统
-                                    System.exit(0);//结束进程
+
                                     loop=false;
                                     break;
 

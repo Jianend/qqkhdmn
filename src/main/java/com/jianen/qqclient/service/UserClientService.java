@@ -65,8 +65,10 @@ public class UserClientService {
         Message message = new Message();
         message.setSender(u.getUserid());
         message.setMesType(MessageType.MESSAGE_CLIENT);//退出系统
-        ObjectOutputStream oos  = new ObjectOutputStream(socket.getOutputStream());
+        ObjectOutputStream oos  = new ObjectOutputStream(ManageClientConnectServerThread.getClientConnectServerYThread(u.getUserid()).getSocket().getOutputStream());
         oos.writeObject(message);
+        System.out.println(u.getUserid()+"  退出系统");
+        System.exit(0);//结束进程
 
     }
 
