@@ -63,6 +63,7 @@ public class UserClientService {
         //发送一个Message 类型 MESSAGE_GET_ONLINE_FRIEND
         Message message = new Message();
         message.setMesType(MessageType.MESSAGE_GET_ONLINE_FRIEND);
+        message.setSender(u.getUserid());
         //发送给服务器
         //应该得到当前线程对应的ObjectOutputStream对象
         try {

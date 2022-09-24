@@ -55,6 +55,7 @@ public class qqview {
                             switch (key){
                                 case "1":
                                     //写一个方法
+                                    ucs.onlineFriendList();
                                     System.out.println("显示在线用户列表");
                                     break;
                                 case "2":

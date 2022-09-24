@@ -27,9 +27,11 @@ public class ClientConnectServerThread extends Thread {
                     //如果是读取的是服务器返回的在线用户列表
                     //取出在线列表并显示
                     String[] s = o.getContent().split(" ");//用空格分割
-                    System.out.println("===当前在线用户列表===");
+
+                    System.out.println("\n===当前在线用户列表===");
+                    System.out.println(o.getContent());
                     for (int i = 0; i < s.length; i++) {
-                        System.out.println("用户："+s);
+                        System.out.println("用户：  "+s[i]);
                     }
                 } else {
                     System.out.println("其他类型");
