@@ -11,11 +11,20 @@ public class ClientConnectServerThread extends Thread {
 
     //该线程需要持有Socker
     private Socket socket;
+    private boolean fool=true;
+
+    public boolean isFool() {
+        return fool;
+    }
+
+    public void setFool(boolean fool) {
+        this.fool = fool;
+    }
 
     @Override
     public void run() {
         //因为我们线程需要在后台和服务器通信 因此我们while循环
-        while (true) {
+        while (fool) {
             System.out.println("客户端线程 等待从服务器端发送的消息");
             try {
                 ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());

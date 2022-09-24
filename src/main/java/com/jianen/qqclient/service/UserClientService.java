@@ -58,6 +58,18 @@ public class UserClientService {
 
     }
 
+    /**
+     * 向服务器发送退出系统对象
+     */
+    public void exit() throws IOException {
+        Message message = new Message();
+        message.setSender(u.getUserid());
+        message.setMesType(MessageType.MESSAGE_CLIENT);//退出系统
+        ObjectOutputStream oos  = new ObjectOutputStream(socket.getOutputStream());
+        oos.writeObject(message);
+
+    }
+
     //向服务器端请求在线用户列表
     public void onlineFriendList()  {
         //发送一个Message 类型 MESSAGE_GET_ONLINE_FRIEND

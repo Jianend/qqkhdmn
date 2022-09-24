@@ -1,5 +1,7 @@
 package com.jianen.qqclient.view;
 
+import com.jianen.qqclient.service.ClientConnectServerThread;
+import com.jianen.qqclient.service.ManageClientConnectServerThread;
 import com.jianen.qqclient.service.UserClientService;
 import com.jianen.qqclient.utils.Utility;
 
@@ -69,6 +71,8 @@ public class qqview {
                                     break;
                                 case "9":
                                     System.out.println("5 退出系统");
+                                    ucs.exit();//向服务器发送退出系统
+                                    System.exit(0);//结束进程
                                     loop=false;
                                     break;
 
