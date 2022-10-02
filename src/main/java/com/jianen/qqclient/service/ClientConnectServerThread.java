@@ -3,6 +3,8 @@ package com.jianen.qqclient.service;
 import com.jianen.qqcommon.Message;
 import com.jianen.qqcommon.MessageType;
 
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -46,7 +48,14 @@ public class ClientConnectServerThread extends Thread {
                     System.out.println("\n"+o.getSender()+": "+o.getContent()+"\n"+o.getSendTime());
                 }else if (o.getMesType().equals(MessageType.MESSAGE_TO_ALL_MES)){
                     System.out.println("\n"+o.getSender()+"对大家说"+o.getContent());
+                }else if (o.getMesType().equals(MessageType.MESSAGE_TO_FILE_MES)){
+                    BufferedOutputStream bos  = new BufferedOutputStream(new FileOutputStream(o.getDest()));
+                    System.out.println(o.getSender()+"发送给"+o.getGetter()+"到"+o.getDest());
+                    bos.write(o.getFilebytes());
+                    bos.close();
+                    System.out.println("保存文件成功");
                 }
+
                 else {
                     System.out.println("其他类型");
                 }

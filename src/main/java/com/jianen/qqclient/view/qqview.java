@@ -1,9 +1,6 @@
 package com.jianen.qqclient.view;
 
-import com.jianen.qqclient.service.ClientConnectServerThread;
-import com.jianen.qqclient.service.ManageClientConnectServerThread;
-import com.jianen.qqclient.service.MessageClientService;
-import com.jianen.qqclient.service.UserClientService;
+import com.jianen.qqclient.service.*;
 import com.jianen.qqclient.utils.Utility;
 
 import java.io.IOException;
@@ -38,6 +35,7 @@ public class qqview {
                     String pwd = Utility.readString(50);
                     UserClientService ucs  = new UserClientService();//对象用于登录服务/注册用户
                     MessageClientService mcs  = new MessageClientService();//用于消息服务
+                    FileClientService fileClientService = new FileClientService();//该对象用于传输文件
 //到服务器验证用户是否合法
                     //我们编写一个类UserClientService 用户验证
 
@@ -78,6 +76,13 @@ public class qqview {
                                     break;
                                 case "4":
                                     System.out.println("4 发送文件");
+                                    System.out.println("用户");
+                                    String getterId = Utility.readString(50);//用户
+                                    String src = Utility.readString(100);//自己文件
+                                    String dest = Utility.readString(100);//对方文件
+                                    fileClientService.sendFileToOne(src,dest,userId,getterId);
+
+
                                     break;
                                 case "9":
                                     System.out.println("5 退出系统");

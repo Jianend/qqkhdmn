@@ -41,6 +41,7 @@ public class UserClientService {
         Message ms =(Message) ois.readObject();
         if (ms.getMesType().equals(MessageType.MESSAGE_LOGIN_SUCCEED)) {
             //登录成功
+            System.out.println(ms.getContent());//打印离线信息
 
 
             //创建一个和服务器端保持通信的线程 -》创建一个类ClientConnectServerThread

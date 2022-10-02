@@ -3,8 +3,7 @@ package com.jianen.qqclient.service;
 import com.jianen.qqcommon.Message;
 import com.jianen.qqcommon.MessageType;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.Date;
 
 /**
@@ -46,5 +45,6 @@ public class MessageClientService {
         ObjectOutputStream oos  = new ObjectOutputStream(ManageClientConnectServerThread.getClientConnectServerYThread(senderId).getSocket().getOutputStream());
         oos.writeObject(message);
     }
+
 
 }

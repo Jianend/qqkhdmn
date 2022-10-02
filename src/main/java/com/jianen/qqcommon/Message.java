@@ -12,6 +12,42 @@ public class Message  implements Serializable {
     private  String  content;//消息内容
     private  String  sendTime;//发送时间
     private String  mesType ;//消息类型在接口中定义消息类型
+    private byte[] filebytes; //文件对象字节
+    private int fileLen=0;
+    private  String dest;//文件传送到哪里
+    private  String src;//源文件
+
+    public byte[] getFilebytes() {
+        return filebytes;
+    }
+
+    public void setFilebytes(byte[] filebytes) {
+        this.filebytes = filebytes;
+    }
+
+    public int getFileLen() {
+        return fileLen;
+    }
+
+    public void setFileLen(int fileLen) {
+        this.fileLen = fileLen;
+    }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
 
     public String getMesType() {
         return mesType;
